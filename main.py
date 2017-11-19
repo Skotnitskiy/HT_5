@@ -2,12 +2,11 @@ import argparse
 import csv
 import os
 import logging.config
+import requests
+import sys
 
 from datetime import datetime
-import requests
 from pprint import pprint
-
-import sys
 
 import config as conf
 
