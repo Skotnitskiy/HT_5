@@ -24,9 +24,12 @@ if not os.path.exists(conf.results_path):
 else:
     logger.info("results directory already exists")
 
+logger.info("request was sent to obtain the list of IDs by category {}".format(args.categorie))
 request = requests.get(conf.categorie_url.format(args.categorie))
+logger.info("list is received")
 ids_records = request.json()
 all_records = []
+logger.info("report generation started...")
 for record_id in ids_records:
     record_line = requests.get(conf.item_url.format(record_id)).json()
     if record_line.get("score") >= conf.score:
@@ -34,6 +37,7 @@ for record_id in ids_records:
         if date >= conf.from_date:
             record_line["time"] = datetime.fromtimestamp((record_line["time"])).strftime("%Y-%m-%d-%H:%M:%S")
             all_records.append(record_line)
+            logger.info("record {} added to result list".format(record_id))
             pprint(record_line)
 print(len(all_records), "records")
 
@@ -43,11 +47,13 @@ def write_dict_to_csv(csv_file, csv_columns, dict_data):
         writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
         writer.writeheader()
         writer.writerows(dict_data)
+        logger.info("list of records recorded to file")
 
 
+logger.info("generation headers list")
 rep_columns = set()
 for rec in all_records:
     for key in rec.keys():
         rep_columns.add(key)
-pprint(rep_columns)
+logger.info(rep_columns)
 write_dict_to_csv(conf.results_path + conf.rep_file_name, rep_columns, all_records)
