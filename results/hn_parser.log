@@ -1,0 +1,45 @@
+2017-11-20 01:05:16,239 - DataParserApp - INFO - Program started
+2017-11-20 01:05:16,240 - DataParserApp - INFO - results directory already exists
+2017-11-20 01:05:16,240 - DataParserApp - INFO - request was sent to obtain the list of IDs by category askstories
+2017-11-20 01:05:16,924 - DataParserApp - INFO - list is received
+2017-11-20 01:05:16,925 - DataParserApp - INFO - report generation started...
+2017-11-20 01:05:17,585 - DataParserApp - INFO - record 15733760 added to result list
+2017-11-20 01:05:18,454 - DataParserApp - INFO - record 15732752 added to result list
+2017-11-20 01:05:19,105 - DataParserApp - INFO - record 15733745 added to result list
+2017-11-20 01:05:19,761 - DataParserApp - INFO - record 15733629 added to result list
+2017-11-20 01:05:21,071 - DataParserApp - INFO - record 15733672 added to result list
+2017-11-20 01:05:21,716 - DataParserApp - INFO - record 15732087 added to result list
+2017-11-20 01:05:22,360 - DataParserApp - INFO - record 15733910 added to result list
+2017-11-20 01:05:23,009 - DataParserApp - INFO - record 15734666 added to result list
+2017-11-20 01:05:27,106 - DataParserApp - INFO - record 15718653 added to result list
+2017-11-20 01:05:27,777 - DataParserApp - INFO - record 15729471 added to result list
+2017-11-20 01:05:28,328 - DataParserApp - INFO - record 15728416 added to result list
+2017-11-20 01:05:28,972 - DataParserApp - INFO - record 15732765 added to result list
+2017-11-20 01:05:29,625 - DataParserApp - INFO - record 15727166 added to result list
+2017-11-20 01:05:33,218 - DataParserApp - INFO - record 15725753 added to result list
+2017-11-20 01:05:34,279 - DataParserApp - INFO - record 15731320 added to result list
+2017-11-20 01:05:34,938 - DataParserApp - INFO - record 15729218 added to result list
+2017-11-20 01:05:35,608 - DataParserApp - INFO - record 15715547 added to result list
+2017-11-20 01:05:36,930 - DataParserApp - INFO - record 15730743 added to result list
+2017-11-20 01:05:37,581 - DataParserApp - INFO - record 15717789 added to result list
+2017-11-20 01:05:38,242 - DataParserApp - INFO - record 15711418 added to result list
+2017-11-20 01:05:38,895 - DataParserApp - INFO - record 15730225 added to result list
+2017-11-20 01:05:39,555 - DataParserApp - INFO - record 15728174 added to result list
+2017-11-20 01:05:40,210 - DataParserApp - INFO - record 15720474 added to result list
+2017-11-20 01:05:40,859 - DataParserApp - INFO - record 15722849 added to result list
+2017-11-20 01:05:42,000 - DataParserApp - INFO - record 15719240 added to result list
+2017-11-20 01:05:42,655 - DataParserApp - INFO - record 15722485 added to result list
+2017-11-20 01:05:43,304 - DataParserApp - INFO - record 15726545 added to result list
+2017-11-20 01:05:43,953 - DataParserApp - INFO - record 15729439 added to result list
+2017-11-20 01:05:44,602 - DataParserApp - INFO - record 15728535 added to result list
+2017-11-20 01:05:45,911 - DataParserApp - INFO - record 15727687 added to result list
+2017-11-20 01:05:46,551 - DataParserApp - INFO - record 15710276 added to result list
+2017-11-20 01:05:47,207 - DataParserApp - INFO - record 15725927 added to result list
+2017-11-20 01:05:48,526 - DataParserApp - INFO - record 15725849 added to result list
+2017-11-20 01:05:49,824 - DataParserApp - INFO - record 15718449 added to result list
+2017-11-20 01:05:51,204 - DataParserApp - INFO - record 15717701 added to result list
+2017-11-20 01:05:51,877 - DataParserApp - INFO - record 15730308 added to result list
+2017-11-20 01:06:03,605 - DataParserApp - INFO - record 15729033 added to result list
+2017-11-20 01:06:11,534 - DataParserApp - INFO - generation headers list
+2017-11-20 01:06:11,535 - DataParserApp - INFO - {'type', 'title', 'kids', 'id', 'by', 'descendants', 'time', 'score', 'text'}
+2017-11-20 01:06:11,539 - DataParserApp - INFO - list of records recorded to file
