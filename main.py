@@ -7,6 +7,8 @@ from datetime import datetime
 import requests
 from pprint import pprint
 
+import sys
+
 import config as conf
 
 logging.config.dictConfig(conf.dictLogConfig)
@@ -27,11 +29,21 @@ else:
 logger.info("request was sent to obtain the list of IDs by category {}".format(args.categorie))
 request = requests.get(conf.categorie_url.format(args.categorie))
 logger.info("list is received")
-ids_records = request.json()
+try:
+    ids_records = request.json()
+except requests.exceptions.RequestException as e:
+    logger.error(e)
+    print(e)
+    sys.exit(1)
+
 all_records = []
 logger.info("report generation started...")
 for record_id in ids_records:
-    record_line = requests.get(conf.item_url.format(record_id)).json()
+    try:
+        record_line = requests.get(conf.item_url.format(record_id)).json()
+    except requests.exceptions.RequestException as e:
+        logger.error(e)
+        print(e)
     if record_line.get("score") >= conf.score:
         date = datetime.date(datetime.fromtimestamp((record_line["time"])))
         if date >= conf.from_date:
