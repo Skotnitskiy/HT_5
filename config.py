@@ -1,10 +1,14 @@
-categories_list = ["skstories", "showstories", "newstories", "jobstories"]
+import datetime
+
+categories_list = ["askstories", "showstories", "newstories", "jobstories"]
 default_categorie = "newstories"
 results_path = "../results/"
 rep_file_name = "report.csv"
 log_file_name = "hn_parser.log"
 categorie_url = "https://hacker-news.firebaseio.com/v0/{}.json?print=pretty"
 item_url = 'https://hacker-news.firebaseio.com/v0/item/{}.json?print=pretty'
+from_date = datetime.date(2016, 1, 1)
+score = 5
 dictLogConfig = {
     "version": 1,
     "handlers": {

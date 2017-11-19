@@ -1,6 +1,8 @@
 import argparse
 import os
 import logging.config
+
+from datetime import datetime
 import requests
 import pprint
 
@@ -28,4 +30,14 @@ if not os.path.exists(conf.results_path + conf.rep_file_name):
 else:
     logger.info("file " + conf.rep_file_name + " already exists")
 request = requests.get(conf.categorie_url.format(args.categorie))
-pprint.pprint(request.json())
+ids_records = request.json()
+all_records = []
+for id in ids_records:
+    record_line = requests.get(conf.item_url.format(id)).json()
+    if record_line.get("score") >= conf.score:
+        date = datetime.date(datetime.fromtimestamp((record_line["time"])))
+        if date >= conf.from_date:
+            record_line["time"] = datetime.fromtimestamp((record_line["time"])).strftime("%Y-%m-%d-%H:%M:%S")
+            all_records.append(record_line)
+            pprint.pprint(record_line)
+print(len(all_records))
