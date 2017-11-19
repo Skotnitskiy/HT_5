@@ -3,6 +3,8 @@ default_categorie = "newstories"
 results_path = "../results/"
 rep_file_name = "report.csv"
 log_file_name = "hn_parser.log"
+categorie_url = "https://hacker-news.firebaseio.com/v0/{}.json?print=pretty"
+item_url = 'https://hacker-news.firebaseio.com/v0/item/{}.json?print=pretty'
 dictLogConfig = {
     "version": 1,
     "handlers": {

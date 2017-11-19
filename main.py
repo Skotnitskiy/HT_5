@@ -1,6 +1,8 @@
 import argparse
 import os
 import logging.config
+import requests
+import pprint
 
 import config as conf
 
@@ -11,6 +13,7 @@ logger.info("Program started")
 parser = argparse.ArgumentParser(description='Data parse.')
 parser.add_argument('-c', action="store", dest="categorie", default=conf.default_categorie,
                     choices=conf.categories_list)
+args = parser.parse_args()
 # create dir
 if not os.path.exists(conf.results_path):
     os.mkdir(conf.results_path)
@@ -24,3 +27,5 @@ if not os.path.exists(conf.results_path + conf.rep_file_name):
     logger.info("file", conf.rep_file_name, "created")
 else:
     logger.info("file " + conf.rep_file_name + " already exists")
+request = requests.get(conf.categorie_url.format(args.categorie))
+pprint.pprint(request.json())
