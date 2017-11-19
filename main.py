@@ -1,10 +1,11 @@
 import argparse
+import csv
 import os
 import logging.config
 
 from datetime import datetime
 import requests
-import pprint
+from pprint import pprint
 
 import config as conf
 
@@ -23,21 +24,30 @@ if not os.path.exists(conf.results_path):
 else:
     logger.info("results directory already exists")
 
-# create report.csv if not exists
-if not os.path.exists(conf.results_path + conf.rep_file_name):
-    f = open(conf.results_path + conf.rep_file_name, "w")
-    logger.info("file", conf.rep_file_name, "created")
-else:
-    logger.info("file " + conf.rep_file_name + " already exists")
 request = requests.get(conf.categorie_url.format(args.categorie))
 ids_records = request.json()
 all_records = []
-for id in ids_records:
-    record_line = requests.get(conf.item_url.format(id)).json()
+for record_id in ids_records:
+    record_line = requests.get(conf.item_url.format(record_id)).json()
     if record_line.get("score") >= conf.score:
         date = datetime.date(datetime.fromtimestamp((record_line["time"])))
         if date >= conf.from_date:
             record_line["time"] = datetime.fromtimestamp((record_line["time"])).strftime("%Y-%m-%d-%H:%M:%S")
             all_records.append(record_line)
-            pprint.pprint(record_line)
-print(len(all_records))
+            pprint(record_line)
+print(len(all_records), "records")
+
+
+def write_dict_to_csv(csv_file, csv_columns, dict_data):
+    with open(csv_file, 'w') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
+        writer.writeheader()
+        writer.writerows(dict_data)
+
+
+rep_columns = set()
+for rec in all_records:
+    for key in rec.keys():
+        rep_columns.add(key)
+pprint(rep_columns)
+write_dict_to_csv(conf.results_path + conf.rep_file_name, rep_columns, all_records)
